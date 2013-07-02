@@ -1,2 +1,0 @@
-python cameraCapture2.py test_video.avi
-ffmpeg -i test_video/img%03d.jpg -qscale 0 -r 25 outmovie.mp4

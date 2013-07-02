@@ -1,8 +1,11 @@
-function align_depth_rgb(input_folder)
-addpath(genpath('C:\Users\varsha\Documents\Research\toolbox_calib'));
+% function align_depth_rgb(input_folder)
+% addpath(genpath('C:\Users\varsha\Documents\Research\toolbox_calib'));
+addpath(genpath('/fiddlestix/Users/varsha/Documents/ResearchTools/toolbox_calib/'));
+input_folder = '/fiddlestix/Users/varsha/Documents/ResearchTools/RGBDemo-0.4.0-Win32/calib_ims_home_kinect/view0000/';
 raw_depth_yml_path = sprintf('%s\\raw\\depth.yml', input_folder);
 filename = fopen(raw_depth_yml_path);
-a = csvread(sprintf('%s\\raw\\Untitled.txt', input_folder));
+% a = csvread(sprintf('%s\\raw\\Untitled.txt', input_folder));
+a = csvread(sprintf('%s/raw/Untitled.txt', input_folder));
 a = a';
 b = a(find(a(:)));
 cx_d = 329.04791;
@@ -56,8 +59,8 @@ yrgb(yrgb<1) = 1;
 yrgb(yrgb>480) = 480;
 xrgb = round(xrgb);
 yrgb = round(yrgb);
-depth_im = imread(sprintf('%s\\depth.png', input_folder));
-rgb_im = imread(sprintf('%s\\color.png', input_folder));
+depth_im = imread(sprintf('%s/depth.png', input_folder));
+rgb_im = imread(sprintf('%s/color.png', input_folder));
 a = zeros(size(rgb_im));
 % a(:,:,1) = depth_im;
 % a(:,:,2) = depth_im;
@@ -72,7 +75,15 @@ ind_rgb_red = sub2ind(size(rgb_im),yrgb(:),xrgb(:),ones(length(ind),1));
 ind_rgb_green = sub2ind(size(rgb_im),yrgb(:),xrgb(:),2*ones(length(ind),1));
 ind_rgb_blue = sub2ind(size(rgb_im),yrgb(:),xrgb(:),3*ones(length(ind),1));
 a(ind_ir_red) = rgb_im(ind_rgb_red);    a(ind_ir_green) = rgb_im(ind_rgb_green);    a(ind_ir_blue) = rgb_im(ind_rgb_blue);
-subplot(1,2,2);
-imshow(uint8(a));
+% subplot(1,2,2);
+% imshow(uint8(a));
+ I = edge(depth_im, 'canny');
+[xx yy] = ind2sub(size(I), find(I==1));
+ind = sub2ind(size(a), xx, yy, 2*ones(length(xx), 1));
+A = a;
+imshow(A)
+imshow(uint8(A))
+A(ind) = 255;
+imshow(uint8(A))
 
-end
+% end
