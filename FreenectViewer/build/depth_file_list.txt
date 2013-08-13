@@ -1,0 +1,3 @@
+/fiddlestix/Users/varsha/Documents/ResearchCode/FreenectViewer/build/DP_0.png
+/fiddlestix/Users/varsha/Documents/ResearchCode/FreenectViewer/build/DP_1.png
+/fiddlestix/Users/varsha/Documents/ResearchCode/FreenectViewer/build/DP_2.png

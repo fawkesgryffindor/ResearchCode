@@ -1,0 +1,4 @@
+FILE NAME,THETA_X,THETA_Y,THETA_Z,HEAD_CENTER_X,HEAD_CENTER_Y,HEAD_CENTER_Z
+/fiddlestix/Users/varsha/Documents/ResearchCode/FreenectViewer/build/DP_0.png,
+/fiddlestix/Users/varsha/Documents/ResearchCode/FreenectViewer/build/DP_1.png,
+/fiddlestix/Users/varsha/Documents/ResearchCode/FreenectViewer/build/DP_2.png,
